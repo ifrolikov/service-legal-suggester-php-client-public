@@ -34,6 +34,17 @@ try
     {
         echo $suggestion['inn'];
         echo $suggestion['kpp'];
+        echo $suggestion['okpo'];
+        echo $suggestion['type'];
+        echo $suggestion['ogrn'];
+        echo $suggestion['status'];
+        echo $suggestion['registrationDate'];
+        echo $suggestion['directorFullName'];
+
+        foreach($suggestion['contactPhones'] as $phone) {
+            echo $phone;
+        }
+
         echo $suggestion['fullWithOpf'];
         echo $suggestion['shortWithOpf'];
         echo $suggestion['addressValue'];
