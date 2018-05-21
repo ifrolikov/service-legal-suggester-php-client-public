@@ -6,7 +6,7 @@ PHP клиент для сервиса Legal Suggester
 ## Инициализация
 Переменные окружения ETCD_HOST и ETCD_PORT должны быть установлены
 > export ETCD_HOST=etcd  
-export ETCD_PORT=20003
+export ETCD_PORT=2379
 ```php
 $legalSuggesterClient = new \LegalSuggesterClient\LegalSuggesterClient('x-request-id', 'session-id');
 ```
