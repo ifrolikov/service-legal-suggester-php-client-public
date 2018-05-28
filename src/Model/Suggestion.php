@@ -185,7 +185,7 @@ class Suggestion extends BaseModel
 		$this->shortWithOpf = $shortWithOpf;
 	}
 	
-	public function toArrayByTemplate()
+	public function toArray()
 	{
 		return [
 			'inn' => $this->getInn(),

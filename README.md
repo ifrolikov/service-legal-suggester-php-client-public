@@ -28,21 +28,20 @@ $suggestions = $legalSuggesterClient->search("сбербанк", [], 'request_ti
 ```php
 try
 {
-    $suggestions = $legalSuggesterClient->search("сбербанк");
+    $suggestion = $legalSuggesterClient->search("пао сбербанк");
 
-    echo $suggestion['inn'];
-    echo $suggestion['kpp'];
-    echo $suggestion['okpo'];
-    echo $suggestion['type'];
-    echo $suggestion['ogrn'];
-    echo $suggestion['name'];
-    echo $suggestion['legalAddress'];
-    echo $suggestion['registrationDate'];
-    echo $suggestion['directorFullName'];
-    echo $suggestion['contactPhones'];
-    echo $suggestion['fullWithOpf'];
-    echo $suggestion['shortWithOpf'];
-
+    echo $suggestion->getInn();
+    echo $suggestion->getKpp();
+    echo $suggestion->getOkpo();
+    echo $suggestion->getType();
+    echo $suggestion->getOgrn();
+    echo $suggestion->getRegistrationDate();
+    echo $suggestion->getDirectorFullName();
+    print_r($suggestion->getContactPhones());
+    echo $suggestion->getFullWithOpf();
+    echo $suggestion->getShortWithOpf();
+    echo $suggestion->getLegalAddress();
+    echo $suggestion->getName();
 }
 catch (\LegalSuggesterClient\ApiException $e)
 {
