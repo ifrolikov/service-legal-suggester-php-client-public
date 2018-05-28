@@ -29,26 +29,20 @@ $suggestions = $legalSuggesterClient->search("сбербанк", [], 'request_ti
 try
 {
     $suggestions = $legalSuggesterClient->search("сбербанк");
-    
-    foreach ($suggestions as $suggestion)
-    {
-        echo $suggestion['inn'];
-        echo $suggestion['kpp'];
-        echo $suggestion['okpo'];
-        echo $suggestion['type'];
-        echo $suggestion['ogrn'];
-        echo $suggestion['status'];
-        echo $suggestion['registrationDate'];
-        echo $suggestion['directorFullName'];
 
-        foreach($suggestion['contactPhones'] as $phone) {
-            echo $phone;
-        }
+    echo $suggestion['inn'];
+    echo $suggestion['kpp'];
+    echo $suggestion['okpo'];
+    echo $suggestion['type'];
+    echo $suggestion['ogrn'];
+    echo $suggestion['name'];
+    echo $suggestion['legalAddress'];
+    echo $suggestion['registrationDate'];
+    echo $suggestion['directorFullName'];
+    echo $suggestion['contactPhones'];
+    echo $suggestion['fullWithOpf'];
+    echo $suggestion['shortWithOpf'];
 
-        echo $suggestion['fullWithOpf'];
-        echo $suggestion['shortWithOpf'];
-        echo $suggestion['addressValue'];
-    }
 }
 catch (\LegalSuggesterClient\ApiException $e)
 {

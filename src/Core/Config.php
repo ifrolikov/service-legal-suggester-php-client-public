@@ -4,7 +4,7 @@ namespace LegalSuggesterClient\Core;
 
 class Config
 {
-	const ETCD_SUGGESTER_HOST_KEY = '/config-tutu/infrastructure/internal_services/base_domain';
+	const ETCD_SUGGESTER_HOST_KEY = '/config-tutu/infrastructure/internal_services/suggester';
 
 	public static function getBaseUri() : string
 	{
