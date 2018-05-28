@@ -27,17 +27,9 @@ class LegalSuggesterClient
 
 	public function search(string $query, array $params = [], $reqTimeout = LegalSuggesterClient::REQUEST_TIMEOUT): array
 	{
-		$uri = $this->_buildUrl("/legal_suggester_service/api/v1/search/$query", $params);
-
-		$items = $this->_request('get', $uri, [], $reqTimeout);
-
-		$suggestions = [];
-		foreach ($items as $item) {
-			$suggestion = Suggestion::init($item);
-			$suggestions[] = $suggestion->toArrayByTemplate();
-		}
-
-		return $suggestions;
+		$uri = $this->_buildUrl("/legal_suggester_service/api/v1/suggestions/search?query=$query");
+		$responce = $this->_request('get', $uri, [], $reqTimeout);
+		return Suggestion::init($responce);
 	}
 
 	protected function _request(string $method, string $uri, array $data = [], $reqTimeout)

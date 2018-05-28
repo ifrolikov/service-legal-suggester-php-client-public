@@ -7,71 +7,199 @@ class Suggestion extends BaseModel
 	/**
 	 * @var string
 	 */
-	private $value;
+	private $inn;
 
 	/**
 	 * @var string
 	 */
-	private $unrestrictedValue;
+	private $kpp;
 
 	/**
-	 * @var object
-	 * model="\LegalSuggesterClient\Model\SuggestionData"
+	 * @var string
 	 */
-	private $data;
+	private $okpo;
 
-	public function getValue(): string
+	/**
+	 * @var string
+	 */
+	private $type;
+
+	/**
+	 * @var string
+	 */
+	private $ogrn;
+
+	/**
+	 * @var string
+	 */
+	private $name;
+
+	/**
+	 * @var string
+	 */
+	private $legalAddress;
+
+	/**
+	 * @var int
+	 */
+	private $registrationDate;
+
+	/**
+	 * @var string
+	 */
+	private $contactPhones;
+		
+	/**
+	 * @var string
+	 */
+	private $directorFullName;
+
+	/**
+	 * @var string
+	 */
+	private $fullWithOpf;
+
+	/**
+	 * @var string
+	 */
+	private $shortWithOpf;
+	
+
+	public function getInn(): string
 	{
-		return $this->value;
+		return $this->inn;
 	}
 
-	public function setValue(string $value)
+	public function setInn(string $inn)
 	{
-		$this->value = $value;
+		$this->inn = $inn;
 	}
 
-	public function getUnrestrictedValue(): string
+	public function getKpp(): string
 	{
-		return $this->unrestrictedValue;
+		return $this->kpp;
 	}
 
-	public function setUnrestrictedValue(string $unrestrictedValue)
+	public function setKpp(string $kpp)
 	{
-		$this->unrestrictedValue = $unrestrictedValue;
+		$this->kpp = $kpp;
 	}
 
-	public function getData()
+	public function getOkpo(): string
 	{
-		return $this->data;
+		return $this->okpo;
 	}
 
-	public function setData(SuggestionData $data)
+	public function setOkpo(string $okpo)
 	{
-		$this->data = $data;
+		$this->okpo = $okpo;
 	}
 
+	public function getType(): string
+	{
+		return $this->type;
+	}
+
+	public function setType(string $type)
+	{
+		$this->type = $type;
+	}
+
+	public function getOgrn(): string
+	{
+		return $this->ogrn;
+	}
+
+	public function setOgrn(string $ogrn)
+	{
+		$this->ogrn = $ogrn;
+	}
+
+	public function getName(): string
+	{
+		return $this->name;
+	}
+
+	public function setName(string $name)
+	{
+		$this->name = $name;
+	}
+
+	public function getLegalAddress(): string
+	{
+		return $this->legalAddress;
+	}
+
+	public function setLegalAddress(string $legalAddress)
+	{
+		$this->legalAddress = $legalAddress;
+	}
+	
+	public function getContactPhones(): string
+	{
+		return $this->contactPhones;
+	}
+
+	public function setContactPhones(string $contactPhones)
+	{
+		$this->contactPhones = $contactPhones;
+	}
+
+	public function getRegistrationDate(): int
+	{
+		return $this->registrationDate;
+	}
+
+	public function setRegistrationDate(int $registrationDate)
+	{
+		$this->registrationDate = $registrationDate;
+	}
+	
+	public function getDirectorFullName(): string
+	{
+		return $this->directorFullName;
+	}
+
+	public function setDirectorFullName(string $directorFullName)
+	{
+		$this->directorFullName = $directorFullName;
+	}
+	
+	public function getFullWithOpf(): string
+	{
+		return $this->fullWithOpf;
+	}
+
+	public function setFullWithOpf(string $fullWithOpf)
+	{
+		$this->fullWithOpf = $fullWithOpf;
+	}
+
+	public function getShortWithOpf(): string
+	{
+		return $this->shortWithOpf;
+	}
+
+	public function setShortWithOpf(string $shortWithOpf)
+	{
+		$this->shortWithOpf = $shortWithOpf;
+	}
+	
 	public function toArrayByTemplate()
 	{
 		return [
-			'inn' => $this->getData()->getInn(),
-			'kpp' => $this->getData()->getKpp(),
-			'okpo' => $this->getData()->getOkpo(),
-			'type' => $this->getData()->getType(),
-			'ogrn' => $this->getData()->getOgrn(),
-			'status' => $this->getData()->getState()->getStatus(),
-			'registrationDate' => $this->getData()->getState()->getRegistrationDate(),
-			'directorFullName' => $this->getData()->getManagement()->getName(),
-			'contactPhones' =>
-				array_map(
-					function ($phone)
-					{
-						return $phone->getNumber();
-					},
-					$this->getData()->getPhones()
-				),
-			'fullWithOpf' => $this->getData()->getName()->getFullWithOpf(),
-			'shortWithOpf' => $this->getData()->getName()->getShortWithOpf(),
-			'addressValue' => $this->getData()->getAddress()->getValue(),
+			'inn' => $this->getInn(),
+			'kpp' => $this->getKpp(),
+			'okpo' => $this->getOkpo(),
+			'type' => $this->getType(),
+			'ogrn' => $this->getOgrn(),
+			'registrationDate' => $this->getRegistrationDate(),
+			'directorFullName' => $this->getDirectorFullName(),
+			'contactPhones' => $this->getContactPhones(),
+			'fullWithOpf' => $this->getFullWithOpf(),
+			'shortWithOpf' => $this->getShortWithOpf(),
+			'legalAddress' => $this->getLegalAddress(),
+			'name' => $this->getName()
 		];
 	}
 }
