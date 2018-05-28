@@ -135,12 +135,12 @@ class Suggestion extends BaseModel
 		$this->legalAddress = $legalAddress;
 	}
 	
-	public function getContactPhones(): string
+	public function getContactPhones(): array
 	{
 		return $this->contactPhones;
 	}
 
-	public function setContactPhones(string $contactPhones)
+	public function setContactPhones(array $contactPhones)
 	{
 		$this->contactPhones = $contactPhones;
 	}

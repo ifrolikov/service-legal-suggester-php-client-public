@@ -25,7 +25,7 @@ class LegalSuggesterClient
 		$this->client = ClientHelper::getClient($xRequestId, $sessionId, $requestTimeout, $connectTimeout);
 	}
 
-	public function search(string $query, array $params = [], $reqTimeout = LegalSuggesterClient::REQUEST_TIMEOUT): array
+	public function search(string $query, array $params = [], $reqTimeout = LegalSuggesterClient::REQUEST_TIMEOUT): Suggestion
 	{
 		$uri = $this->_buildUrl("/legal_suggester_service/api/v1/suggestions/search?query=$query");
 		$responce = $this->_request('get', $uri, [], $reqTimeout);
