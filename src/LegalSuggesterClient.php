@@ -36,14 +36,13 @@ class LegalSuggesterClient
 	{
 		try {
 
-			$response = $this->client->request(
-				strtoupper($method),
-				$uri,
-				[
-					'json' => $data,
-					'timeout' => $reqTimeout
-				]
-			);
+			$options = ['json' => $data];
+			if ($reqTimeout != static::REQUEST_TIMEOUT)
+			{
+				$options['timeout'] = $reqTimeout;
+			}
+
+			$response = $this->client->request(strtoupper($method), $uri, $options);
 
 			$result = \GuzzleHttp\json_decode((string)$response->getBody()->getContents(), true);
 
