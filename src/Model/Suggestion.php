@@ -65,7 +65,7 @@ class Suggestion extends BaseModel
 	private $shortWithOpf;
 	
 
-	public function getInn(): string
+	public function getInn(): ?string
 	{
 		return $this->inn;
 	}
@@ -75,7 +75,7 @@ class Suggestion extends BaseModel
 		$this->inn = $inn;
 	}
 
-	public function getKpp(): string
+	public function getKpp(): ?string
 	{
 		return $this->kpp;
 	}
@@ -85,7 +85,7 @@ class Suggestion extends BaseModel
 		$this->kpp = $kpp;
 	}
 
-	public function getOkpo(): string
+	public function getOkpo(): ?string
 	{
 		return $this->okpo;
 	}
@@ -95,7 +95,7 @@ class Suggestion extends BaseModel
 		$this->okpo = $okpo;
 	}
 
-	public function getType(): string
+	public function getType(): ?string
 	{
 		return $this->type;
 	}
@@ -105,7 +105,7 @@ class Suggestion extends BaseModel
 		$this->type = $type;
 	}
 
-	public function getOgrn(): string
+	public function getOgrn(): ?string
 	{
 		return $this->ogrn;
 	}
@@ -115,7 +115,7 @@ class Suggestion extends BaseModel
 		$this->ogrn = $ogrn;
 	}
 
-	public function getName(): string
+	public function getName(): ?string
 	{
 		return $this->name;
 	}
@@ -125,7 +125,7 @@ class Suggestion extends BaseModel
 		$this->name = $name;
 	}
 
-	public function getLegalAddress(): string
+	public function getLegalAddress(): ?string
 	{
 		return $this->legalAddress;
 	}
@@ -135,7 +135,7 @@ class Suggestion extends BaseModel
 		$this->legalAddress = $legalAddress;
 	}
 	
-	public function getContactPhones(): array
+	public function getContactPhones(): ?array
 	{
 		return $this->contactPhones;
 	}
@@ -145,7 +145,7 @@ class Suggestion extends BaseModel
 		$this->contactPhones = $contactPhones;
 	}
 
-	public function getRegistrationDate(): int
+	public function getRegistrationDate(): ?int
 	{
 		return $this->registrationDate;
 	}
@@ -155,7 +155,7 @@ class Suggestion extends BaseModel
 		$this->registrationDate = $registrationDate;
 	}
 	
-	public function getDirectorFullName(): string
+	public function getDirectorFullName(): ?string
 	{
 		return $this->directorFullName;
 	}
@@ -165,7 +165,7 @@ class Suggestion extends BaseModel
 		$this->directorFullName = $directorFullName;
 	}
 	
-	public function getFullWithOpf(): string
+	public function getFullWithOpf(): ?string
 	{
 		return $this->fullWithOpf;
 	}
@@ -175,7 +175,7 @@ class Suggestion extends BaseModel
 		$this->fullWithOpf = $fullWithOpf;
 	}
 
-	public function getShortWithOpf(): string
+	public function getShortWithOpf(): ?string
 	{
 		return $this->shortWithOpf;
 	}
