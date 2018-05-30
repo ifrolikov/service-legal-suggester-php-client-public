@@ -7,7 +7,7 @@ use LegalSuggesterClient\Core\Config;
 
 class ClientHelper
 {
-	public static function getClient($xRequestId, $sessionId, $requestTimeout, $connectTimeout) : Client
+	public static function getClient($xRequestId, $sessionId, $requestTimeout, $connectTimeout, $uri) : Client
 	{
 		$headers = array_merge(
 			Config::getHeaders(),
@@ -18,7 +18,7 @@ class ClientHelper
 		);
 
 		return new Client([
-			'base_uri' => Config::getBaseUri(),
+			'base_uri' => $uri,
 			'headers' => $headers,
 			'timeout' => $requestTimeout,
 			'connect_timeout' => $connectTimeout

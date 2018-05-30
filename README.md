@@ -4,21 +4,38 @@ PHP клиент для сервиса Legal Suggester
 # Использование
 
 ## Инициализация
-Переменные окружения ETCD_HOST и ETCD_PORT должны быть установлены
+Если url сервиса договоров берется из etcd, то необходимо установить переменные окружения ETCD_HOST и ETCD_PORT
 > export ETCD_HOST=etcd  
 export ETCD_PORT=2379
+
+1. Базовая инициализация
 ```php
 $legalSuggesterClient = new \LegalSuggesterClient\LegalSuggesterClient('x-request-id', 'session-id');
 ```
 
-## Таймауты
-Таймауты можно установить двумя способами:
-
-1. Для всех запросов при создании клиента
+2. Инициализация с таймаутами
 ```php
-$legalSuggesterClient = new \LegalSuggesterClient\LegalSuggesterClient('x-request-id', 'session-id', 'request_timeout', 'connect_timeout');
+$contractClient = new \LegalSuggesterClient\LegalSuggesterClient(
+    'x-request-id', 
+    'session-id', 
+    'request_timeout', 
+    'connect_time'
+);
 ```
-2. Для отдельного запроса. В каждом методе за таймаут запроса отвечает последний параметр
+
+3. Инициализация с конкретным url, на который будут отправляться запросы
+```php
+$contractClient = new \LegalSuggesterClient\LegalSuggesterClient(
+    'x-request-id', 
+    'session-id', 
+    \LegalSuggesterClient\LegalSuggesterClient::REQUEST_TIMEOUT, 
+    \LegalSuggesterClient\LegalSuggesterClient::CONNECT_TIMEOUT, 
+    'http://suggester.service:20003'
+);
+```
+
+## Таймауты
+Таймауты можно установить для отдельного запроса. В каждом методе за таймаут запроса отвечает последний параметр
 ```php
 $suggestions = $legalSuggesterClient->search("сбербанк", [], 'request_timeout');
 ```

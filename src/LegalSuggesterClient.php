@@ -5,6 +5,7 @@ namespace LegalSuggesterClient;
 use GuzzleHttp\Client;
 use LegalSuggesterClient\Helper\ClientHelper;
 use LegalSuggesterClient\Model\Suggestion;
+use LegalSuggesterClient\Core\Config;
 
 class LegalSuggesterClient
 {
@@ -20,9 +21,13 @@ class LegalSuggesterClient
 		$xRequestId,
 		$sessionId,
 		$requestTimeout = LegalSuggesterClient::REQUEST_TIMEOUT,
-		$connectTimeout = LegalSuggesterClient::CONNECT_TIMEOUT)
+		$connectTimeout = LegalSuggesterClient::CONNECT_TIMEOUT,
+		string $uri = null
+	)
 	{
-		$this->client = ClientHelper::getClient($xRequestId, $sessionId, $requestTimeout, $connectTimeout);
+		$uri = $uri ?? Config::getBaseUri();
+
+		$this->client = ClientHelper::getClient($xRequestId, $sessionId, $requestTimeout, $connectTimeout, $uri);
 	}
 
 	public function search(string $query, array $params = [], $reqTimeout = LegalSuggesterClient::REQUEST_TIMEOUT): Suggestion
