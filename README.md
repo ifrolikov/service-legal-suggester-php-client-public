@@ -15,7 +15,7 @@ $legalSuggesterClient = new \LegalSuggesterClient\LegalSuggesterClient('x-reques
 
 2. Инициализация с таймаутами
 ```php
-$contractClient = new \LegalSuggesterClient\LegalSuggesterClient(
+$legalSuggesterClient = new \LegalSuggesterClient\LegalSuggesterClient(
     'x-request-id', 
     'session-id', 
     'request_timeout', 
@@ -25,7 +25,7 @@ $contractClient = new \LegalSuggesterClient\LegalSuggesterClient(
 
 3. Инициализация с конкретным url, на который будут отправляться запросы
 ```php
-$contractClient = new \LegalSuggesterClient\LegalSuggesterClient(
+$legalSuggesterClient = new \LegalSuggesterClient\LegalSuggesterClient(
     'x-request-id', 
     'session-id', 
     \LegalSuggesterClient\LegalSuggesterClient::REQUEST_TIMEOUT, 
