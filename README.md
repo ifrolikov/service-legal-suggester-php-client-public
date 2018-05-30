@@ -4,7 +4,7 @@ PHP клиент для сервиса Legal Suggester
 # Использование
 
 ## Инициализация
-Если url сервиса договоров берется из etcd, то необходимо установить переменные окружения ETCD_HOST и ETCD_PORT
+Если url сервиса подсказок берется из etcd, то необходимо установить переменные окружения ETCD_HOST и ETCD_PORT
 > export ETCD_HOST=etcd  
 export ETCD_PORT=2379
 
