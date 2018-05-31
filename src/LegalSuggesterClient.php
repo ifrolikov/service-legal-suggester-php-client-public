@@ -30,11 +30,23 @@ class LegalSuggesterClient
 		$this->client = ClientHelper::getClient($xRequestId, $sessionId, $requestTimeout, $connectTimeout, $uri);
 	}
 
-	public function search(string $query, array $params = [], $reqTimeout = LegalSuggesterClient::REQUEST_TIMEOUT): Suggestion
+	public function search(string $query, int $count = null, $reqTimeout = LegalSuggesterClient::REQUEST_TIMEOUT): array
 	{
-//		$uri = $this->_buildUrl("/legal_suggester_service/api/v1/suggestions/search?query=$query");
-//		$responce = $this->_request('get', $uri, [], $reqTimeout);
-//		return Suggestion::init($responce);
+		$uri = $this->_buildUrl("/legal_suggester_service/api/v1/suggestions/search", ['query' => $query, 'count' => $count]);
+		$legals = $this->_request('get', $uri, [], $reqTimeout);
+
+		if (!is_array($legals))
+		{
+			throw new ApiException("The suggester service returned invalid response");
+		}
+
+		$result = [];
+		foreach ($legals as $legal)
+		{
+			$result[] = Suggestion::init($legal);
+		}
+
+		return $result;
 
 		return Suggestion::init(json_decode('{"inn":"7707083893","kpp":"773601001","type":"LEGAL","ogrn":"1027700132195","name":"\u041f\u0410\u041e \u0421\u0411\u0415\u0420\u0411\u0410\u041d\u041a","legalAddress":"\u0433 \u041c\u043e\u0441\u043a\u0432\u0430, \u0443\u043b \u0412\u0430\u0432\u0438\u043b\u043e\u0432\u0430, \u0434 19","registrationDate":677376000000,"directorFullName":"\u0413\u0440\u0435\u0444 \u0413\u0435\u0440\u043c\u0430\u043d \u041e\u0441\u043a\u0430\u0440\u043e\u0432\u0438\u0447","shortWithOpf":"\u041f\u0410\u041e \u0421\u0411\u0415\u0420\u0411\u0410\u041d\u041a","fullWithOpf":"\u041f\u0423\u0411\u041b\u0418\u0427\u041d\u041e\u0415 \u0410\u041a\u0426\u0418\u041e\u041d\u0415\u0420\u041d\u041e\u0415 \u041e\u0411\u0429\u0415\u0421\u0422\u0412\u041e \"\u0421\u0411\u0415\u0420\u0411\u0410\u041d\u041a \u0420\u041e\u0421\u0421\u0418\u0418\""}', true));
 	}
