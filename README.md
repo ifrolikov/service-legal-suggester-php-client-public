@@ -40,25 +40,31 @@ $legalSuggesterClient = new \LegalSuggesterClient\LegalSuggesterClient(
 $suggestions = $legalSuggesterClient->search("сбербанк", [], 'request_timeout');
 ```
 
-
 ## Поиск по организациям
+По умолчанию возвращает не более 10 записей
 ```php
 try
 {
-    $suggestion = $legalSuggesterClient->search("пао сбербанк");
-
-    echo $suggestion->getInn();
-    echo $suggestion->getKpp();
-    echo $suggestion->getOkpo();
-    echo $suggestion->getType();
-    echo $suggestion->getOgrn();
-    echo $suggestion->getRegistrationDate();
-    echo $suggestion->getDirectorFullName();
-    print_r($suggestion->getContactPhones());
-    echo $suggestion->getFullWithOpf();
-    echo $suggestion->getShortWithOpf();
-    echo $suggestion->getLegalAddress();
-    echo $suggestion->getName();
+    $suggestions = $legalSuggesterClient->search("пао сбербанк");
+    
+    //или с указанием кол-ва записей
+    $suggestions = $legalSuggesterClient->search("пао сбербанк", 15);
+    
+    foreach ($suggestions as $suggestion)
+    {
+        echo $suggestion->getInn();
+        echo $suggestion->getKpp();
+        echo $suggestion->getOkpo();
+        echo $suggestion->getType();
+        echo $suggestion->getOgrn();
+        echo $suggestion->getRegistrationDate();
+        echo $suggestion->getDirectorFullName();
+        print_r($suggestion->getContactPhones());
+        echo $suggestion->getFullWithOpf();
+        echo $suggestion->getShortWithOpf();
+        echo $suggestion->getLegalAddress();
+        echo $suggestion->getName();
+    }
 }
 catch (\LegalSuggesterClient\ApiException $e)
 {
