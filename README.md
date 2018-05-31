@@ -37,7 +37,7 @@ $legalSuggesterClient = new \LegalSuggesterClient\LegalSuggesterClient(
 ## Таймауты
 Таймауты можно установить для отдельного запроса. В каждом методе за таймаут запроса отвечает последний параметр
 ```php
-$suggestions = $legalSuggesterClient->search("сбербанк", [], 'request_timeout');
+$suggestions = $legalSuggesterClient->search("сбербанк", null, 'request_timeout');
 ```
 
 ## Поиск по организациям
