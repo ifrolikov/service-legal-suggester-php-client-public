@@ -48,15 +48,55 @@ class LegalSuggesterClient
 //
 //		return $result;
 
-		$legal = json_decode('{"inn":"7707083893","kpp":"773601001","type":"LEGAL","ogrn":"1027700132195","name":"\u041f\u0410\u041e \u0421\u0411\u0415\u0420\u0411\u0410\u041d\u041a","legalAddress":"\u0433 \u041c\u043e\u0441\u043a\u0432\u0430, \u0443\u043b \u0412\u0430\u0432\u0438\u043b\u043e\u0432\u0430, \u0434 19","registrationDate":677376000000,"directorFullName":"\u0413\u0440\u0435\u0444 \u0413\u0435\u0440\u043c\u0430\u043d \u041e\u0441\u043a\u0430\u0440\u043e\u0432\u0438\u0447","shortWithOpf":"\u041f\u0410\u041e \u0421\u0411\u0415\u0420\u0411\u0410\u041d\u041a","fullWithOpf":"\u041f\u0423\u0411\u041b\u0418\u0427\u041d\u041e\u0415 \u0410\u041a\u0426\u0418\u041e\u041d\u0415\u0420\u041d\u041e\u0415 \u041e\u0411\u0429\u0415\u0421\u0422\u0412\u041e \u0022\u0421\u0411\u0415\u0420\u0411\u0410\u041d\u041a \u0420\u041e\u0421\u0421\u0418\u0418\u0022"}', true);
-		if ($count)
-		{
-			$legals = array_fill(0, $count, $legal);
-		}
-		else
-		{
-			$legals[] = $legal;
-		}
+		$legals = [
+			[
+				"inn" => "7707083893",
+				"kpp" => "773601001",
+				"type" => "LEGAL",
+				"ogrn" => "1027700132195",
+				"name" => "ПАО СБЕРБАНК",
+				"legalAddress" => "г Москва, ул Вавилова, д 19",
+				"registrationDate" => 677376000000,
+				"directorFullName" => "Греф Герман Оскарович",
+				"shortWithOpf" => "ПАО СБЕРБАНК",
+				"fullWithOpf" => "ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"СБЕРБАНК РОССИИ\""
+			],
+			[
+				"inn" => "4825124195",
+				"kpp" => "482501001",
+				"type" => "LEGAL",
+				"ogrn" => "1174827008333",
+				"name" => "The english company",
+				"legalAddress" => "398020, ОБЛАСТЬ ЛИПЕЦКАЯ, ГОРОД ЛИПЕЦК, УЛИЦА ГАЙДАРА, ДОМ 2, КОРПУС Б, ОФИС 311",
+				"registrationDate" => 1493337600000,
+				"directorFullName" => "Горбатюк Ирина Юрьевна",
+				"shortWithOpf" => "The english company",
+				"fullWithOpf" => "The english company"
+			],
+			[
+				"inn" => "4027033642",
+				"kpp" => "402701001",
+				"type" => "LEGAL",
+				"ogrn" => "1024001344124",
+				"name" => "Очень большая компания с очень-очень и очень длинным названием",
+				"legalAddress" => "г Калуга, ул Суворова, д 118",
+				"registrationDate" => 893808000000,
+				"directorFullName" => "Бабинов Валентин Иванович",
+				"shortWithOpf" => "ЗАО \"Очень большая компания с очень-очень и очень длинным названием\"",
+				"fullWithOpf" => "ЗАКРЫТОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"Очень большая компания с очень-очень и очень длинным названием\""
+			],
+			[
+				"inn" => "5047178648",
+				"kpp" => "504701001",
+				"type" => "LEGAL",
+				"ogrn" => "1155047015122",
+				"name" => "ООО \"НТТ\"",
+				"legalAddress" => "Московская обл, г Химки, ул Ленинградская, влд 39 стр 5",
+				"registrationDate" => 1451347200000,
+				"shortWithOpf" => "ООО \"НТТ\"",
+				"fullWithOpf" => "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"НАУЧНО-ТЕХНИЧЕСКАЯ ТЕХНИКА\""
+			]
+		];
 
 		$result = [];
 		foreach ($legals as $legal)
