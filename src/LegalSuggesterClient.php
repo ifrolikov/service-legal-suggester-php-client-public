@@ -128,11 +128,12 @@ class LegalSuggesterClient
 		}
 		catch (\GuzzleHttp\Exception\RequestException $e)
 		{
-			throw new ApiException((string)$e, 0, $e);
+			throw new ApiException((string)$e, $e->getResponse()->getStatusCode(), $e);
 		}
 		catch (\Exception $e)
 		{
-			throw new ApiException($e->getMessage(), 0, $e);
+			//все остальные эксепшены, которые кидает guzzle + эксепшены самого клиента
+			throw new ApiException($e->getMessage(), $e->getCode(), $e);
 		}
 	}
 
