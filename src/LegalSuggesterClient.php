@@ -52,7 +52,6 @@ class LegalSuggesterClient
 			[
 				"inn" => "7707083893",
 				"kpp" => "773601001",
-				"type" => "LEGAL",
 				"ogrn" => "1027700132195",
 				"name" => "ПАО СБЕРБАНК",
 				"legalAddress" => "г Москва, ул Вавилова, д 19",
@@ -64,7 +63,6 @@ class LegalSuggesterClient
 			[
 				"inn" => "4825124195",
 				"kpp" => "482501001",
-				"type" => "LEGAL",
 				"ogrn" => "1174827008333",
 				"name" => "The english company",
 				"legalAddress" => "398020, ОБЛАСТЬ ЛИПЕЦКАЯ, ГОРОД ЛИПЕЦК, УЛИЦА ГАЙДАРА, ДОМ 2, КОРПУС Б, ОФИС 311",
@@ -76,7 +74,6 @@ class LegalSuggesterClient
 			[
 				"inn" => "4027033642",
 				"kpp" => "402701001",
-				"type" => "LEGAL",
 				"ogrn" => "1024001344124",
 				"name" => "Очень большая компания с очень-очень и очень длинным названием",
 				"legalAddress" => "г Калуга, ул Суворова, д 118",
@@ -88,7 +85,6 @@ class LegalSuggesterClient
 			[
 				"inn" => "5047178648",
 				"kpp" => "504701001",
-				"type" => "LEGAL",
 				"ogrn" => "1155047015122",
 				"name" => "ООО \"НТТ\"",
 				"legalAddress" => "Московская обл, г Химки, ул Ленинградская, влд 39 стр 5",

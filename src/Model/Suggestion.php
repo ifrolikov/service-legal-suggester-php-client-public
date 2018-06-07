@@ -22,11 +22,6 @@ class Suggestion extends BaseModel
 	/**
 	 * @var string
 	 */
-	private $type;
-
-	/**
-	 * @var string
-	 */
 	private $ogrn;
 
 	/**
@@ -93,16 +88,6 @@ class Suggestion extends BaseModel
 	public function setOkpo(string $okpo)
 	{
 		$this->okpo = $okpo;
-	}
-
-	public function getType(): ?string
-	{
-		return $this->type;
-	}
-
-	public function setType(string $type)
-	{
-		$this->type = $type;
 	}
 
 	public function getOgrn(): ?string
@@ -191,7 +176,6 @@ class Suggestion extends BaseModel
 			'inn' => $this->getInn(),
 			'kpp' => $this->getKpp(),
 			'okpo' => $this->getOkpo(),
-			'type' => $this->getType(),
 			'ogrn' => $this->getOgrn(),
 			'registrationDate' => $this->getRegistrationDate(),
 			'directorFullName' => $this->getDirectorFullName(),

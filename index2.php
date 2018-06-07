@@ -16,7 +16,6 @@ try
 		echo $suggestion->getInn();
 		echo $suggestion->getKpp();
 		echo $suggestion->getOkpo();
-		echo $suggestion->getType();
 		echo $suggestion->getOgrn();
 		echo $suggestion->getRegistrationDate();
 		echo $suggestion->getDirectorFullName();
