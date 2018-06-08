@@ -70,7 +70,7 @@ class LegalSuggesterClient
 		}
 		catch (\GuzzleHttp\Exception\RequestException $e)
 		{
-			throw new ApiException((string)$e, $e->getResponse()->getStatusCode(), $e);
+			throw new ApiException((string)$e, $e->getCode(), $e);
 		}
 		catch (\Exception $e)
 		{
