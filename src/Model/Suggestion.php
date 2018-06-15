@@ -130,12 +130,12 @@ class Suggestion extends BaseModel
 		$this->contactPhones = $contactPhones;
 	}
 
-	public function getRegistrationDate(): ?int
+	public function getRegistrationDate(): ?string
 	{
 		return $this->registrationDate;
 	}
 
-	public function setRegistrationDate(int $registrationDate)
+	public function setRegistrationDate(string $registrationDate)
 	{
 		$this->registrationDate = $registrationDate;
 	}
