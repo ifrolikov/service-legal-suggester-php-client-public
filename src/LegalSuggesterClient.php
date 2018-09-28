@@ -16,18 +16,24 @@ class LegalSuggesterClient
 	 * @var Client
 	 */
 	protected $client;
-
+	/**
+	 * @var array
+	 */
+	private $guzzleRequestSettings;
+	
 	public function __construct(
 		$xRequestId,
 		$sessionId,
 		$requestTimeout = LegalSuggesterClient::REQUEST_TIMEOUT,
 		$connectTimeout = LegalSuggesterClient::CONNECT_TIMEOUT,
-		string $uri = null
+		string $uri = null,
+		array $guzzleRequestSettings = []
 	)
 	{
 		$uri = $uri ?? Config::getBaseUri();
 
 		$this->client = ClientHelper::getClient($xRequestId, $sessionId, $requestTimeout, $connectTimeout, $uri);
+		$this->guzzleRequestSettings = $guzzleRequestSettings;
 	}
 
 	public function search(string $query, int $count = null, $reqTimeout = LegalSuggesterClient::REQUEST_TIMEOUT): array
@@ -58,6 +64,7 @@ class LegalSuggesterClient
 			{
 				$options['timeout'] = $reqTimeout;
 			}
+			$options = array_merge($options, $this->guzzleRequestSettings);
 
 			$response = $this->client->request(strtoupper($method), $uri, $options);
 
