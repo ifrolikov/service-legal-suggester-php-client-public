@@ -20,6 +20,10 @@ class LegalSuggesterClient
 	 * @var array
 	 */
 	private $guzzleRequestSettings;
+	/**
+	 * @var string
+	 */
+	private $xRequestId;
 	
 	public function __construct(
 		$xRequestId,
@@ -34,6 +38,7 @@ class LegalSuggesterClient
 
 		$this->client = ClientHelper::getClient($xRequestId, $sessionId, $requestTimeout, $connectTimeout, $uri);
 		$this->guzzleRequestSettings = $guzzleRequestSettings;
+		$this->xRequestId = $xRequestId;
 	}
 
 	public function search(string $query, int $count = null, $reqTimeout = LegalSuggesterClient::REQUEST_TIMEOUT): array
@@ -114,5 +119,13 @@ class LegalSuggesterClient
 
 			throw new \Exception($errorMessage);
 		}
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getXRequestId(): string
+	{
+		return $this->xRequestId;
 	}
 }
